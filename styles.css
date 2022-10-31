@@ -19,6 +19,7 @@ main {
     width: 25%;
     margin-top: -10px;
     margin-bottom: -10px;
+    margin-left: -10px;
     color: #e9e9f3;
 }
 
@@ -52,6 +53,8 @@ main {
     flex-direction: column;
     height: 100%;
     width: 77%;
+    background-color: #a9aad2;
+    margin-top: -10px;
 }
 
 .container-top {
@@ -70,4 +73,56 @@ main {
     font-size: 15;
     color: #1f1f3d;
     width: 45%;
+}
+
+textarea {
+    border: .15em #1f1f3d solid;
+    border-radius: .25em;
+    outline: none;
+    margin-top: .25em;
+    resize: none;
+}
+
+.user-title {
+    height: 3em;
+}
+
+.user-body {
+    height: 6em;
+}
+
+.save-button {
+    background: #353567;
+    color: #eaeaf4;
+    font-size: 15px;
+    border: .15em #5356a4 solid;
+    border-radius: .25em;
+    padding: .5em;
+    width: 45%;
+}
+
+.search-ideas-box {
+    display: flex;
+    /* border: .05em solid #1f1f3d; */
+    border-top-right-radius: .25em;
+    border-bottom-right-radius: .25em;
+    height: 2.5em;
+    width: 45%;
+    outline: none;
+}
+
+.search-image {
+    background: #353567;
+    padding: .5em;
+    margin: 0;
+    height: 1.5em;
+    width: 1.5em;
+    border-top-left-radius: .25em;
+    border-bottom-left-radius: .25em;
+}
+.search-field {
+    width: 100%;
+    outline: none;
+    border-top-right-radius: .25em;
+    border-bottom-right-radius: .25em;
 }
