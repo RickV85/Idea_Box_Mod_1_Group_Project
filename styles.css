@@ -1,0 +1,29 @@
+/* font family all the same */
+* {
+    font-family: "Open Sans", sans-serif;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+}
+
+.container-left {
+    background: #1f1f3d;
+    height: 60em;
+    width: 25%;
+    margin-top: -10px;
+    margin-bottom: -10px;
+    color: #e9e9f3;
+}
+
+.starred-ideas-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
