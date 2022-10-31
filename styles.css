@@ -18,8 +18,16 @@ main {
     height: 60em;
     width: 25%;
     margin-top: -10px;
-    margin-bottom: -10px;
+    margin-bottom: -10px;  
     margin-left: -10px;
+    color: #e9e9f3;
+}
+
+.heading {
+    font-size: 15px;
+    font-weight: 700;
+    padding: .5em;
+    margin: .5em;
     color: #e9e9f3;
 }
 
@@ -36,12 +44,15 @@ main {
 
 .starred-ideas {
     font-size: 12px;
+    /* font-weight: 700; */
     color: #bfbfdd;
     margin: 0;
+
 }
 
 .show-ideas-button {
-    font: 15px;
+    font: 20px;
+    font-weight: 700;
     color: #e9e9f3;
     background: #5356a4;
     border: none;
@@ -69,6 +80,7 @@ main {
 .title-area,
 .body-area {
     display: flex;
+    font-weight: 700;
     flex-direction: column;
     font-size: 15;
     color: #1f1f3d;
@@ -76,7 +88,7 @@ main {
 }
 
 textarea {
-    border: .15em #1f1f3d solid;
+    border: .15em #5356a4 solid;
     border-radius: .25em;
     outline: none;
     margin-top: .25em;
@@ -103,7 +115,7 @@ textarea {
 
 .search-ideas-box {
     display: flex;
-    /* border: .05em solid #1f1f3d; */
+    border: .05em solid #1f1f3d; 
     border-top-right-radius: .25em;
     border-bottom-right-radius: .25em;
     height: 2.5em;
@@ -125,4 +137,11 @@ textarea {
     outline: none;
     border-top-right-radius: .25em;
     border-bottom-right-radius: .25em;
+}
+
+.container-bottom {
+    display: flex;
+    justify-content: space-evenly;
+    background: #eaeaf4;
+    height: 35em;
 }
