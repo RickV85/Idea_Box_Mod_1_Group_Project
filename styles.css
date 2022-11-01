@@ -145,3 +145,56 @@ textarea {
     background: #eaeaf4;
     height: 35em;
 }
+
+.idea-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 1.5em;
+    height: 15em;
+    width: 14em;
+}
+
+.idea-nav {
+    display: flex;
+    justify-content: space-between;
+    background: #1f1f3d;
+    border-bottom: .15em solid #1f1f3d;
+    margin: 0;
+    height: 13%;
+    width: 100%;
+}
+
+.idea-content {
+    background: #ffffff;
+    border: .15em solid #1f1f3d;
+    padding: .5em;
+    height: 100%;
+}
+
+.idea-title {
+    font-size: 15px;
+}
+
+.idea-body {
+    font-size: 15px;
+    margin: 0;
+}
+
+.idea-comment {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font: 15px;
+    color: #ffffff;
+    background: #5356a4;
+    border: .15em solid #1f1f3d;
+    border-top: none;
+    margin: 0;
+}
+
+.card-icon {
+    padding: .1 em;
+    height: 1.75em;
+    width: 1.75em;
+}
