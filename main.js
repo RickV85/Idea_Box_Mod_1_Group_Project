@@ -43,9 +43,10 @@ function clearInputFields() {
 
 function buttonValidity() {
     if (!userTitle.value || !userBody.value ) {
+        saveIdeaButton.classList.remove('save-button-2');
         saveIdeaButton.disabled = true;
     } else if(userTitle.value && userBody.value) {
-        saveIdeaButton.classList.add('save-button-2')
+        saveIdeaButton.classList.add('save-button-2');
         saveIdeaButton.disabled = false;
     }
 }
