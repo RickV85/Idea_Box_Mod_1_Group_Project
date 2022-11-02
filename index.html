@@ -27,31 +27,18 @@
                         <label for="userbody">Body</label>
                         <textarea class="user-body" type="text" id="userbody"></textarea>
                     </div>
-                    <button class="save-button" id="savebutton">Save</button>
+                    <button type='button' class="save-button" id="savebutton">Save</button>
                     <div class="search-ideas-box">
                         <img class="search-image" src="assets/search.svg" alt="search button">
                         <input class="search-field" type="text" id="searchfield" placeholder="Search Ideas" autocomplete="off" maxlength="40">
                     </div>
                 </form>
                 <section class="container-bottom" id="ideacard">
-                    <article id="ideacard" class="idea-card">
-                        <nav class="idea-nav">
-                            <img class="card-icon" id="favoriteicon" src="image" alt="favorite idea star">
-                            <img class="card-icon" id="deleteicon" src="assets/delete.svg" alt="delete idea icon">
-                        </nav>
-                        <div class="idea-content">
-                            <h2 class="idea-title">Title</h2>
-                            <p class="idea-body">Body</p>
-                        </div>
-                        <footer class="idea-comment">
-                            <img class="card-icon" src="assets/comment.svg" alt="add comment button">
-                            <label>Comment</label>
-                        </footer>
-                    </article>
+                   <!-- This is where user cards are generated -->
                 </section>
             </section>
         </main>
-        <script type="text/javascript" src="src/Idea.js"></script>
-        <script type="text/javascript" src="src/main.js"></script>
+        <script type="text/javascript" src="Idea.js"></script>
+        <script type="text/javascript" src="main.js"></script>
     </body>
 </html>

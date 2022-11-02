@@ -1,10 +1,10 @@
 class Idea {
-    constructor(id, title, body, star, image) {
+    constructor(title, body, id, star, image) {
         this.id = id || Date.now();
         this.title = title;
         this.body = body;
         this.star = star || false;
-        // this.image = image || 'assets/star.svg'
+        this.image = image || 'assets/star.svg'
     };
 
     updateIdea() {
