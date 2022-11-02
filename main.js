@@ -32,14 +32,6 @@ function generateIdeaCard() {
     renderIdeaCard()
     clearInputFields()
     }
-
-    // currentCard = new Idea(userTitle.value, userBody.value)
-
-    // allIdeas.push(currentCard);
-    // currentCard.saveToStorage();
-    // renderIdeaCard()
-    // clearInputFields()
-    
 }
 
 function clearInputFields() {
