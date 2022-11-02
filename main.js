@@ -11,6 +11,7 @@ var searchImage = document.querySelector('.search-image');
 var searchField = document.querySelector('#search-field');
 var ideaCard = document.querySelector('#ideacard');
 var ideaContent = document.querySelector('.idea-content');
+var cardContainer = document.querySelector('.container-bottom')
 
 /* ~~~ EVENT HANDLERS ~~~ */ 
 
@@ -18,6 +19,13 @@ var ideaContent = document.querySelector('.idea-content');
 saveIdeaButton.addEventListener('click', generateIdeaCard)
 userTitle.addEventListener('input', buttonValidity)
 userBody.addEventListener('input', buttonValidity)
+cardContainer.addEventListener('click', function(event) {
+    if (event.target.id === 'deleteicon') {
+        deleteIdeaCard(event);
+        renderIdeaCard();
+    }
+})
+
 
 /* ~~~ FUNCTIONS ~~~ */ 
 
@@ -71,5 +79,14 @@ function renderIdeaCard() {
                 <label>Comment</label>
             </footer>
          </article>`
+    }
+}
+
+function deleteIdeaCard(event) {
+    var deleteCard = event.target.parentNode.parentNode.id;
+    for (let index = 0; index < allIdeas.length; index++) {
+        if (allIdeas[index].id == deleteCard) {
+            allIdeas.splice(index, 1);
+        }
     }
 }
