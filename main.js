@@ -25,7 +25,12 @@ cardContainer.addEventListener('click', function(event) {
         renderIdeaCard();
     }
 })
-
+cardContainer.addEventListener('click', function(event) {
+    if (event.target.id === 'favoriteicon') {
+        favoriteIdeaCard(event);
+        renderIdeaCard();
+    }
+})
 
 /* ~~~ FUNCTIONS ~~~ */ 
 
@@ -87,6 +92,18 @@ function deleteIdeaCard(event) {
     for (let index = 0; index < allIdeas.length; index++) {
         if (allIdeas[index].id == deleteCard) {
             allIdeas.splice(index, 1);
+        }
+    }
+}
+function favoriteIdeaCard(event) {
+    var favoriteCard = event.target.parentNode.parentNode.id;
+    for (let index = 0; index < allIdeas.length; index++) {
+        if (allIdeas[index].id == favoriteCard && allIdeas[index].star === false) {
+            allIdeas[index].star = true;
+            allIdeas[index].image = 'assets/star-active.svg'
+        } else if (allIdeas[index].id == favoriteCard && allIdeas[index].star === true) {
+            allIdeas[index].star = false;
+            allIdeas[index].image = 'assets/star.svg'
         }
     }
 }
