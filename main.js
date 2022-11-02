@@ -3,30 +3,61 @@
 var allIdeas = [];
 var currentCard;
 var showIdeasButton = document.querySelector('.show-ideas-button');
-var ideaBox = document.querySelector('.container-top')
+var ideaBox = document.querySelector('#containertop')
 var userTitle = document.querySelector('#usertitle')
 var userBody = document.querySelector('#userbody')
-var saveIdeaButton = document.querySelector('.save-button');
+var saveIdeaButton = document.querySelector('#savebutton');
 var searchImage = document.querySelector('.search-image');
-var searchField = document.querySelector('.search-field');
-var ideaCard = document.querySelector('.idea-card');
+var searchField = document.querySelector('#search-field');
+var ideaCard = document.querySelector('#ideacard');
 var ideaContent = document.querySelector('.idea-content');
 
 /* ~~~ EVENT HANDLERS ~~~ */ 
 
+// window.addEventListener('load', buttonValidity)
 saveIdeaButton.addEventListener('click', generateIdeaCard)
+userTitle.addEventListener('input', buttonValidity)
+userBody.addEventListener('input', buttonValidity)
 
 /* ~~~ FUNCTIONS ~~~ */ 
 
 function generateIdeaCard() {
-    if(userTitle.value && userBody.value) {
-    currentCard = new Idea(userTitle.value, userBody.value)
+    if (userTitle.value === '' || userBody.value === '') {
+        return
+    } else {
+        currentCard = new Idea(userTitle.value, userBody.value)
 
     allIdeas.push(currentCard);
     currentCard.saveToStorage();
     renderIdeaCard()
+    clearInputFields()
+    }
+
+    // currentCard = new Idea(userTitle.value, userBody.value)
+
+    // allIdeas.push(currentCard);
+    // currentCard.saveToStorage();
+    // renderIdeaCard()
+    // clearInputFields()
+    
+}
+
+function clearInputFields() {
+    userTitle.value = '';
+    userBody.value = '';
+    saveIdeaButton.classList.remove('save-button-2');
+    buttonValidity();
+}
+
+function buttonValidity() {
+    if (!userTitle.value || !userBody.value ) {
+        saveIdeaButton.disabled = true;
+    } else if(userTitle.value && userBody.value) {
+        saveIdeaButton.classList.add('save-button-2')
+        saveIdeaButton.disabled = false;
     }
 }
+
 
 function renderIdeaCard() {
     ideaCard.innerHTML = "";

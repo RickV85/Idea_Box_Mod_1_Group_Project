@@ -104,13 +104,19 @@ textarea {
 }
 
 .save-button {
-    background: #353567;
+    background: #9292b7;
     color: #eaeaf4;
     font-size: 15px;
     border: .15em #5356a4 solid;
     border-radius: .25em;
     padding: .5em;
     width: 45%;
+    cursor: text;
+}
+
+.save-button-2 {
+    background: #353567;
+    cursor: pointer;
 }
 
 .search-ideas-box {
@@ -198,3 +204,4 @@ textarea {
     height: 1.75em;
     width: 1.75em;
 }
+
