@@ -150,3 +150,27 @@ function renderStarredIdeas() {
         }
     }
 }
+
+function inputChecker() {
+    ideaCard.innerHTML = "";
+
+    for (var i = 0; i < allIdeas.length; i++) {
+        if ((allIdeas[i].title.includes(saveButtonSearchField.value)) || (allIdeas[i].body.includes(saveButtonSearchField.value))) {
+          ideaCard.innerHTML += `
+          <article id='${allIdeas[i].id}' class="idea-card">
+              <nav class="idea-nav">
+                  <img class="card-icon" id="favoriteicon" src="${allIdeas[i].image}" alt="favorite idea star">
+                  <img class="card-icon" id="deleteicon" src="assets/delete.svg" alt="delete idea icon">
+              </nav>
+              <div class="idea-content">
+                  <h2 class="idea-title">${allIdeas[i].title}</h2>
+                  <p class="idea-body">${allIdeas[i].body}</p>
+              </div>
+              <footer class="idea-comment">
+                  <img class="card-icon" src="assets/comment.svg" alt="add comment button">
+                  <label>Comment</label>
+              </footer>
+           </article>`
+        }
+    }
+}
