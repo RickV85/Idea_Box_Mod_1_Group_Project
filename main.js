@@ -76,7 +76,7 @@ function buttonValidity() {
 function renderIdeaCard() {
     ideaCard.innerHTML = "";
 
-    for(var i =0; i < allIdeas.length; i++) {
+    for(var i = 0; i < allIdeas.length; i++) {
         ideaCard.innerHTML += `
         <article id='${allIdeas[i].id}' class="idea-card">
             <nav class="idea-nav">
@@ -97,20 +97,20 @@ function renderIdeaCard() {
 
 function deleteIdeaCard(event) {
     var deleteCard = event.target.parentNode.parentNode.id;
-    for (let index = 0; index < allIdeas.length; index++) {
-        if (allIdeas[index].id == deleteCard) {
-            allIdeas.splice(index, 1);
+    for (let i = 0; i < allIdeas.length; i++) {
+        if (allIdeas[i].id == deleteCard) {
+            allIdeas.splice(i, 1);
         }
     }
 }
 
 function favoriteIdeaCard(event) {
     var favoriteCard = event.target.parentNode.parentNode.id;
-    for (let index = 0; index < allIdeas.length; index++) {
-        if (allIdeas[index].id == favoriteCard && allIdeas[index].star === false) {
-            allIdeas[index].updateIdea();
-        } else if (allIdeas[index].id == favoriteCard && allIdeas[index].star === true) {
-            allIdeas[index].updateIdea();
+    for (let i = 0; i < allIdeas.length; i++) {
+        if (allIdeas[i].id == favoriteCard && allIdeas[i].star === false) {
+            allIdeas[i].updateIdea();
+        } else if (allIdeas[i].id == favoriteCard && allIdeas[i].star === true) {
+            allIdeas[i].updateIdea();
         }
     }
 }
@@ -128,7 +128,7 @@ function displayStarredIdeas() {
 function renderStarredIdeas() {
     ideaCard.innerHTML = "";
     
-    for(var i =0; i < allIdeas.length; i++) {
+    for(var i = 0; i < allIdeas.length; i++) {
         if(allIdeas[i].star === true) {
             ideaCard.innerHTML += `
             <article id='${allIdeas[i].id}' class="idea-card">
