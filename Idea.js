@@ -8,7 +8,13 @@ class Idea {
     };
 
     updateIdea() {
-
+        if(this.star === false) {
+            this.star = true;
+            this.image = 'assets/star-active.svg'
+        } else if(this.star === true) {
+            this.star = false;
+            this.image = 'assets/star.svg'
+        }
     };
 
     saveToStorage() {
