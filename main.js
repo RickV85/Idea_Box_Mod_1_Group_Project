@@ -37,6 +37,7 @@ cardContainer.addEventListener('click', function(event) {
     }
 })
 showIdeasButton.addEventListener('click', displayStarredIdeas);
+saveButtonSearchField.addEventListener('input', inputChecker);
 
 
 /* ~~~ FUNCTIONS ~~~ */ 
