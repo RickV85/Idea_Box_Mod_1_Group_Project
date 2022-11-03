@@ -2,42 +2,42 @@
 
 var allIdeas = [];
 var currentCard;
-var showIdeasButton = document.querySelector('.show-ideas-button');
-var ideaBox = document.querySelector('#containertop')
-var userTitle = document.querySelector('#usertitle')
-var userBody = document.querySelector('#userbody')
-var saveIdeaButton = document.querySelector('#savebutton');
-var searchImage = document.querySelector('.search-image');
-var saveButtonSearchField = document.querySelector('.search-field');
-var ideaCard = document.querySelector('#ideacard');
-var ideaContent = document.querySelector('.idea-content');
+var showIdeasBtn = document.querySelector('.show-ideas-button');
+// var ideaBox = document.querySelector('#containertop')
+var userTitle = document.querySelector('#userTitle')
+var userBody = document.querySelector('#userBody')
+var saveIdeaBtn = document.querySelector('#saveButton');
+// var searchImage = document.querySelector('.search-image');
+var searchField = document.querySelector('.search-field');
+var ideaCard = document.querySelector('#ideaCard');
+// var ideaContent = document.querySelector('.idea-content');
 var cardContainer = document.querySelector('.container-bottom')
 
 /* ~~~ EVENT HANDLERS ~~~ */ 
 
-saveIdeaButton.addEventListener('click', generateIdeaCard)
+saveIdeaBtn.addEventListener('click', generateIdeaCard)
 userTitle.addEventListener('input', buttonValidity)
 userBody.addEventListener('input', buttonValidity)
 cardContainer.addEventListener('click', function(event) {
-    if (event.target.id === 'deleteicon' && showIdeasButton.textContent === 'Show Starred Ideas') {
+    if (event.target.id === 'deleteicon' && showIdeasBtn.textContent === 'Show Starred Ideas') {
         deleteIdeaCard(event);
         renderIdeaCard();
-    } else if (event.target.id === 'deleteicon' && showIdeasButton.textContent === 'Show All Ideas') {
+    } else if (event.target.id === 'deleteicon' && showIdeasBtn.textContent === 'Show All Ideas') {
         deleteIdeaCard(event);
         renderStarredIdeas();
     }
 })
 cardContainer.addEventListener('click', function(event) {
-    if (event.target.id === 'favoriteicon' && showIdeasButton.textContent === 'Show Starred Ideas') {
+    if (event.target.id === 'favoriteicon' && showIdeasBtn.textContent === 'Show Starred Ideas') {
         favoriteIdeaCard(event);
         renderIdeaCard();
-    } else if (event.target.id === 'favoriteicon' && showIdeasButton.textContent === 'Show All Ideas') {
+    } else if (event.target.id === 'favoriteicon' && showIdeasBtn.textContent === 'Show All Ideas') {
         favoriteIdeaCard(event);
         renderStarredIdeas();
     }
 })
-showIdeasButton.addEventListener('click', displayStarredIdeas);
-saveButtonSearchField.addEventListener('input', inputChecker);
+showIdeasBtn.addEventListener('click', displayStarredIdeas);
+searchField.addEventListener('input', inputChecker);
 
 
 /* ~~~ FUNCTIONS ~~~ */ 
@@ -58,17 +58,17 @@ function generateIdeaCard() {
 function clearInputFields() {
     userTitle.value = '';
     userBody.value = '';
-    saveIdeaButton.classList.remove('save-button-2');
+    saveIdeaBtn.classList.remove('save-button-2');
     buttonValidity();
 }
 
 function buttonValidity() {
     if (!userTitle.value || !userBody.value ) {
-        saveIdeaButton.classList.remove('save-button-2');
-        saveIdeaButton.disabled = true;
+        saveIdeaBtn.classList.remove('save-button-2');
+        saveIdeaBtn.disabled = true;
     } else if(userTitle.value && userBody.value) {
-        saveIdeaButton.classList.add('save-button-2');
-        saveIdeaButton.disabled = false;
+        saveIdeaBtn.classList.add('save-button-2');
+        saveIdeaBtn.disabled = false;
     }
 }
 
@@ -118,11 +118,11 @@ function favoriteIdeaCard(event) {
 
 
 function displayStarredIdeas() {
-    if (showIdeasButton.textContent === 'Show Starred Ideas') {
-        showIdeasButton.textContent = 'Show All Ideas'
+    if (showIdeasBtn.textContent === 'Show Starred Ideas') {
+        showIdeasBtn.textContent = 'Show All Ideas'
         renderStarredIdeas();
     } else {
-        showIdeasButton.textContent = 'Show Starred Ideas'
+        showIdeasBtn.textContent = 'Show Starred Ideas'
         renderIdeaCard();
     }
 };
@@ -155,7 +155,7 @@ function inputChecker() {
     ideaCard.innerHTML = "";
 
     for (var i = 0; i < allIdeas.length; i++) {
-        if ((allIdeas[i].title.includes(saveButtonSearchField.value)) || (allIdeas[i].body.includes(saveButtonSearchField.value))) {
+        if ((allIdeas[i].title.includes(searchField.value)) || (allIdeas[i].body.includes(searchField.value))) {
           ideaCard.innerHTML += `
           <article id='${allIdeas[i].id}' class="idea-card">
               <nav class="idea-nav">
