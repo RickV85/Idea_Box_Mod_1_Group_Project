@@ -3,14 +3,11 @@
 var allIdeas = [];
 var currentCard;
 var showIdeasBtn = document.querySelector('.show-ideas-button');
-// var ideaBox = document.querySelector('#containertop')
 var userTitle = document.querySelector('#userTitle')
 var userBody = document.querySelector('#userBody')
 var saveIdeaBtn = document.querySelector('#saveButton');
-// var searchImage = document.querySelector('.search-image');
 var searchField = document.querySelector('.search-field');
 var ideaCard = document.querySelector('#ideaCard');
-// var ideaContent = document.querySelector('.idea-content');
 var cardContainer = document.querySelector('.container-bottom')
 
 /* ~~~ EVENT HANDLERS ~~~ */ 
@@ -38,7 +35,7 @@ cardContainer.addEventListener('click', function(event) {
 })
 showIdeasBtn.addEventListener('click', displayStarredIdeas);
 searchField.addEventListener('input', inputChecker);
-
+window.addEventListener('load', retrieveStorage)
 
 /* ~~~ FUNCTIONS ~~~ */ 
 
@@ -171,4 +168,15 @@ function inputChecker() {
            </article>`
         }
     }
+}
+
+function retrieveStorage() {
+    var keys = Object.keys(localStorage)
+    for (let i = 0; i < keys.length; i++) {
+        var cardDetails = localStorage.getItem(keys[i]);
+        var cardInfo = JSON.parse(cardDetails);
+        var newCard = new Idea(cardInfo.title, cardInfo.body, cardInfo.id, cardInfo.star, cardInfo.image)
+        allIdeas.push(newCard);
+    }
+    renderIdeaCard(allIdeas);
 }
