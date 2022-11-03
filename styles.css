@@ -47,15 +47,15 @@ main {
     /* font-weight: 700; */
     color: #bfbfdd;
     margin: 0;
-
 }
 
 .show-ideas-button {
-    font: 20px;
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: 600;
     color: #e9e9f3;
     background: #5356a4;
-    border: none;
+    border: 2px #353568 solid;
+    border-radius: 0.1em;
     padding: .5em 1.25em .40em 1.25em;
 }
 
@@ -121,9 +121,6 @@ textarea {
 
 .search-ideas-box {
     display: flex;
-    border: .05em solid #1f1f3d; 
-    border-top-right-radius: .25em;
-    border-bottom-right-radius: .25em;
     height: 2.5em;
     width: 45%;
     outline: none;
@@ -140,13 +137,15 @@ textarea {
 }
 .search-field {
     width: 100%;
-    outline: none;
+    border: 0.15em #5356a4 solid;
+    border-left-width: 0em;
     border-top-right-radius: .25em;
     border-bottom-right-radius: .25em;
 }
 
 .container-bottom {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     background: #eaeaf4;
     height: 35em;
