@@ -103,19 +103,17 @@ function deleteIdeaCard(event) {
         }
     }
 }
+
 function favoriteIdeaCard(event) {
     var favoriteCard = event.target.parentNode.parentNode.id;
     for (let index = 0; index < allIdeas.length; index++) {
         if (allIdeas[index].id == favoriteCard && allIdeas[index].star === false) {
-            allIdeas[index].star = true;
-            allIdeas[index].image = 'assets/star-active.svg'
+            allIdeas[index].updateIdea();
         } else if (allIdeas[index].id == favoriteCard && allIdeas[index].star === true) {
-            allIdeas[index].star = false;
-            allIdeas[index].image = 'assets/star.svg'
+            allIdeas[index].updateIdea();
         }
     }
 }
-
 
 function displayStarredIdeas() {
     if (showIdeasBtn.textContent === 'Show Starred Ideas') {
