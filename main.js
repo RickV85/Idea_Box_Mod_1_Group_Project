@@ -31,6 +31,7 @@ cardContainer.addEventListener('click', function(event) {
         renderIdeaCard();
     }
 })
+showIdeasButton.addEventListener('click', displayStarredIdeas);
 
 /* ~~~ FUNCTIONS ~~~ */ 
 
@@ -107,3 +108,11 @@ function favoriteIdeaCard(event) {
         }
     }
 }
+
+function displayStarredIdeas() {
+    if(showIdeasButton.textContent === 'Show Starred Ideas') {
+        showIdeasButton.textContent = 'Show All Ideas'
+    } else {
+        showIdeasButton.textContent = 'Show Starred Ideas'
+    }
+};
