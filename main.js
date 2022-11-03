@@ -93,11 +93,15 @@ function renderIdeaCard() {
 }
 
 function deleteIdeaCard(event) {
-    var deleteCard = event.target.parentNode.parentNode.id;
+    var deleteCard = event.target.closest('article');
+    if (event.target.id === "deleteicon") {
     for (let i = 0; i < allIdeas.length; i++) {
-        if (allIdeas[i].id == deleteCard) {
+        if (allIdeas[i].id === Number(deleteCard.id)) {
+            allIdeas[i].deleteFromStorage();
             allIdeas.splice(i, 1);
         }
+    }
+    renderIdeaCard(allIdeas);
     }
 }
 
