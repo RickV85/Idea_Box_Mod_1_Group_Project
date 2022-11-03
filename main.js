@@ -31,6 +31,9 @@ cardContainer.addEventListener('click', function(event) {
     if (event.target.id === 'favoriteicon' && showIdeasButton.textContent === 'Show Starred Ideas') {
         favoriteIdeaCard(event);
         renderIdeaCard();
+    } else if (event.target.id === 'favoriteicon' && showIdeasButton.textContent === 'Show All Ideas') {
+        favoriteIdeaCard(event);
+        renderStarredIdeas();
     }
 })
 showIdeasButton.addEventListener('click', displayStarredIdeas);
