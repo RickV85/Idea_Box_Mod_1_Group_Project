@@ -31,7 +31,22 @@ cardContainer.addEventListener('click', function(event) {
         renderIdeaCard();
     }
 })
+
 showIdeasButton.addEventListener('click', displayStarredIdeas);
+
+cardContainer.addEventListener('click', function(event) {
+    if (event.target.id === 'deleteicon' && showIdeasButton.textContent === 'Show All Ideas') {
+        deleteIdeaCard(event);
+        renderStarredIdeas();
+    }
+})
+// Deleting an idea from the starred ideas view removes it from both displays but we are currently lacking ability to "unstar" an idea from the starred ideas view. In theory, we should be able to "unstar" an idea, it would disappear from the starred ideas view, but still be present when we flip back to all ideas.  
+cardContainer.addEventListener('click', function(event) {
+    if (event.target.id === 'favoriteicon' && showIdeasButton.textContent === 'Show All Ideas') {
+        favoriteIdeaCard(event);
+        renderStarredIdeas();
+    }
+})
 
 /* ~~~ FUNCTIONS ~~~ */ 
 
