@@ -115,6 +115,7 @@ function displayStarredIdeas() {
         renderStarredIdeas();
     } else {
         showIdeasButton.textContent = 'Show Starred Ideas'
+        renderIdeaCard();
     }
 };
 
