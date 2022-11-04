@@ -18,12 +18,12 @@ class Idea {
     };
 
     saveToStorage() {
-
-    };
-
+        var cardId = this.id;
+        var cardDeets = JSON.stringify(this);
+        localStorage.setItem(cardId, cardDeets);
+      }
+    
     deleteFromStorage() {
-
-    };
+        localStorage.removeItem(this.id);
+      }
 };
-
-// module.exports = Idea;

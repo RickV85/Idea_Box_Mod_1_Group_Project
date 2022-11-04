@@ -35,7 +35,7 @@ cardContainer.addEventListener('click', function(event) {
 })
 showIdeasBtn.addEventListener('click', displayStarredIdeas);
 searchField.addEventListener('input', inputChecker);
-window.addEventListener('load', retrieveStorage)
+window.addEventListener('load', retrieveStorage);
 
 /* ~~~ FUNCTIONS ~~~ */ 
 
@@ -101,7 +101,7 @@ function deleteIdeaCard(event) {
             allIdeas.splice(i, 1);
         }
     }
-    renderIdeaCard(allIdeas);
+    renderIdeaCard();
     }
 }
 
@@ -150,26 +150,49 @@ function renderStarredIdeas() {
     }
 }
 
+
 function inputChecker() {
     ideaCard.innerHTML = "";
-
-    for (var i = 0; i < allIdeas.length; i++) {
-        if ((allIdeas[i].title.includes(searchField.value)) || (allIdeas[i].body.includes(searchField.value))) {
-          ideaCard.innerHTML += `
-          <article id='${allIdeas[i].id}' class="idea-card">
-              <nav class="idea-nav">
-                  <img class="card-icon" id="favoriteicon" src="${allIdeas[i].image}" alt="favorite idea star">
-                  <img class="card-icon" id="deleteicon" src="assets/delete.svg" alt="delete idea icon">
-              </nav>
-              <div class="idea-content">
-                  <h2 class="idea-title">${allIdeas[i].title}</h2>
-                  <p class="idea-body">${allIdeas[i].body}</p>
-              </div>
-              <footer class="idea-comment">
-                  <img class="card-icon" src="assets/comment.svg" alt="add comment button">
-                  <label>Comment</label>
-              </footer>
-           </article>`
+    if (showIdeasBtn.textContent === 'Show Starred Ideas') {
+        for (var i = 0; i < allIdeas.length; i++) {
+            if ((allIdeas[i].title.includes(searchField.value)) || (allIdeas[i].body.includes(searchField.value))) {
+            ideaCard.innerHTML += `
+            <article id='${allIdeas[i].id}' class="idea-card">
+                <nav class="idea-nav">
+                    <img class="card-icon" id="favoriteicon" src="${allIdeas[i].image}" alt="favorite idea star">
+                    <img class="card-icon" id="deleteicon" src="assets/delete.svg" alt="delete idea icon">
+                </nav>
+                <div class="idea-content">
+                    <h2 class="idea-title">${allIdeas[i].title}</h2>
+                    <p class="idea-body">${allIdeas[i].body}</p>
+                </div>
+                <footer class="idea-comment">
+                    <img class="card-icon" src="assets/comment.svg" alt="add comment button">
+                    <label>Comment</label>
+                </footer>
+            </article>`
+            }
+        }
+        // ADDED THIS ELSE IF TO ONLY SHOW STARRED IDEAS WHEN IN STARRED IDEAS VIEW
+    } else if (showIdeasBtn.textContent === 'Show All Ideas') {
+        for (var i = 0; i < allIdeas.length; i++) {
+            if (allIdeas[i].star === true && ((allIdeas[i].title.includes(searchField.value)) || (allIdeas[i].body.includes(searchField.value)))) {
+            ideaCard.innerHTML += `
+            <article id='${allIdeas[i].id}' class="idea-card">
+                <nav class="idea-nav">
+                    <img class="card-icon" id="favoriteicon" src="${allIdeas[i].image}" alt="favorite idea star">
+                    <img class="card-icon" id="deleteicon" src="assets/delete.svg" alt="delete idea icon">
+                </nav>
+                <div class="idea-content">
+                    <h2 class="idea-title">${allIdeas[i].title}</h2>
+                    <p class="idea-body">${allIdeas[i].body}</p>
+                </div>
+                <footer class="idea-comment">
+                    <img class="card-icon" src="assets/comment.svg" alt="add comment button">
+                    <label>Comment</label>
+                </footer>
+            </article>`
+            }
         }
     }
 }
@@ -182,5 +205,5 @@ function retrieveStorage() {
         var newCard = new Idea(cardInfo.title, cardInfo.body, cardInfo.id, cardInfo.star, cardInfo.image)
         allIdeas.push(newCard);
     }
-    renderIdeaCard(allIdeas);
+    renderIdeaCard();
 }
