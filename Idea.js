@@ -15,15 +15,16 @@ class Idea {
             this.star = false;
             this.image = 'assets/star.svg'
         }
+        this.saveToStorage();
     };
 
     saveToStorage() {
-
-    };
-
+        var cardId = this.id;
+        var cardDeets = JSON.stringify(this);
+        localStorage.setItem(cardId, cardDeets);
+      }
+    
     deleteFromStorage() {
-
-    };
+        localStorage.removeItem(this.id);
+      }
 };
-
-// module.exports = Idea;
