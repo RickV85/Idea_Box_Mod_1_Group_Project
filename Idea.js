@@ -15,6 +15,7 @@ class Idea {
             this.star = false;
             this.image = 'assets/star.svg'
         }
+        this.saveToStorage();
     };
 
     saveToStorage() {
