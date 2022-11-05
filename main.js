@@ -23,14 +23,15 @@ cardContainer.addEventListener('click', function(event) {
     }
 })
 showIdeasBtn.addEventListener('click', displayStarredIdeas);
-searchField.addEventListener('input', inputChecker);
-// searchField.addEventListener('input', function() {
-//     if (showIdeasBtn.textContent === 'Show Starred Ideas') {
-        
-//     } else if (showIdeasBtn.textContent === 'Show All Ideas') {
-
-//     }
-// });
+// searchField.addEventListener('input', inputChecker);
+searchField.addEventListener('input', function() {
+    if (showIdeasBtn.textContent === 'Show Starred Ideas') {
+            inputChecker(allIdeas);
+    } else if (showIdeasBtn.textContent === 'Show All Ideas') {
+            var filterIdeaCards = filterFavorites();
+            inputChecker(filterIdeaCards);
+    }
+});
 window.addEventListener('load', retrieveStorage);
 
 /* ~~~ FUNCTIONS ~~~ */ 
@@ -132,7 +133,7 @@ function checkForFavorites() {
     }
 }
 
-function filterFavorites () {
+function filterFavorites() {
     var filterIdeaCards = [];
     for (i = 0; i < allIdeas.length; i++) {
         if (allIdeas[i].star) {
@@ -143,42 +144,24 @@ function filterFavorites () {
     return filterIdeaCards;
 }
 
-function inputChecker() {
+function inputChecker(ideas) {
     ideaCard.innerHTML = "";
-    if (showIdeasBtn.textContent === 'Show Starred Ideas') {
-        for (var i = 0; i < allIdeas.length; i++) {
-            if ((allIdeas[i].title.includes(searchField.value)) || (allIdeas[i].body.includes(searchField.value))) {
+        for (var i = 0; i < ideas.length; i++) {
+            if ((ideas[i].title.includes(searchField.value)) || (ideas[i].body.includes(searchField.value))) {
             ideaCard.innerHTML += `
-            <article id='${allIdeas[i].id}' class="idea-card">
+            <article id='${ideas[i].id}' class="idea-card">
                 <nav class="idea-nav">
-                    <img class="card-icon" id="favoriteicon" src="${allIdeas[i].image}" alt="favorite idea star">
+                    <img class="card-icon" id="favoriteicon" src="${ideas[i].image}" alt="favorite idea star">
                     <img class="card-icon" id="deleteicon" src="assets/delete.svg" alt="delete idea icon">
                 </nav>
                 <div class="idea-content">
-                    <h2 class="idea-title">${allIdeas[i].title}</h2>
-                    <p class="idea-body">${allIdeas[i].body}</p>
+                    <h2 class="idea-title">${ideas[i].title}</h2>
+                    <p class="idea-body">${ideas[i].body}</p>
                 </div>
             </article>`
             }
         }
-    } else if (showIdeasBtn.textContent === 'Show All Ideas') {
-        for (var i = 0; i < allIdeas.length; i++) {
-            if (allIdeas[i].star === true && ((allIdeas[i].title.includes(searchField.value)) || (allIdeas[i].body.includes(searchField.value)))) {
-            ideaCard.innerHTML += `
-            <article id='${allIdeas[i].id}' class="idea-card">
-                <nav class="idea-nav">
-                    <img class="card-icon" id="favoriteicon" src="${allIdeas[i].image}" alt="favorite idea star">
-                    <img class="card-icon" id="deleteicon" src="assets/delete.svg" alt="delete idea icon">
-                </nav>
-                <div class="idea-content">
-                    <h2 class="idea-title">${allIdeas[i].title}</h2>
-                    <p class="idea-body">${allIdeas[i].body}</p>
-                </div>
-            </article>`
-            }
-        }
-    }
-}
+};
 
 function retrieveStorage() {
     var keys = Object.keys(localStorage)
