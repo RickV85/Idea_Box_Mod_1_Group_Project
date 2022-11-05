@@ -72,10 +72,6 @@ function renderIdeaCard(card) {
                 <h2 class="idea-title">${card[i].title}</h2>
                 <p class="idea-body">${card[i].body}</p>
             </div>
-            <footer class="idea-comment">
-                <img class="card-icon" src="assets/comment.svg" alt="add comment button">
-                <label>Comment</label>
-            </footer>
          </article>`
     }
 }
@@ -154,10 +150,6 @@ function inputChecker() {
                     <h2 class="idea-title">${allIdeas[i].title}</h2>
                     <p class="idea-body">${allIdeas[i].body}</p>
                 </div>
-                <footer class="idea-comment">
-                    <img class="card-icon" src="assets/comment.svg" alt="add comment button">
-                    <label>Comment</label>
-                </footer>
             </article>`
             }
         }
@@ -174,10 +166,6 @@ function inputChecker() {
                     <h2 class="idea-title">${allIdeas[i].title}</h2>
                     <p class="idea-body">${allIdeas[i].body}</p>
                 </div>
-                <footer class="idea-comment">
-                    <img class="card-icon" src="assets/comment.svg" alt="add comment button">
-                    <label>Comment</label>
-                </footer>
             </article>`
             }
         }
