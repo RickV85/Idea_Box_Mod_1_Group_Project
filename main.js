@@ -16,18 +16,9 @@ saveIdeaBtn.addEventListener('click', generateIdeaCard);
 userTitle.addEventListener('input', buttonValidity);
 userBody.addEventListener('input', buttonValidity);
 cardContainer.addEventListener('click', function(event) {
-    if (event.target.id === 'deleteicon' && showIdeasBtn.textContent === 'Show Starred Ideas') {
+    if (event.target.id === 'deleteicon') {
         deleteIdeaCard(event);
-        renderIdeaCard(allIdeas);
-    } else if (event.target.id === 'deleteicon' && showIdeasBtn.textContent === 'Show All Ideas') {
-        deleteIdeaCard(event);
-    }
-})
-cardContainer.addEventListener('click', function(event) {
-    if (event.target.id === 'favoriteicon' && showIdeasBtn.textContent === 'Show Starred Ideas') {
-        favoriteIdeaCard(event);
-        renderIdeaCard(allIdeas);
-    } else if (event.target.id === 'favoriteicon' && showIdeasBtn.textContent === 'Show All Ideas') {
+    } else if (event.target.id === 'favoriteicon') {
         favoriteIdeaCard(event);
     }
 })
@@ -98,7 +89,11 @@ function deleteIdeaCard(event) {
             allIdeas.splice(i, 1);
         }
     }
-    renderIdeaCard(allIdeas);
+    }
+    if (showIdeasBtn.textContent === 'Show Starred Ideas') {
+        renderIdeaCard(allIdeas);
+    } else if (showIdeasBtn.textContent === 'Show All Ideas') {
+        filterFavorites();
     }
 }
 
@@ -110,6 +105,11 @@ function favoriteIdeaCard(event) {
         } else if (allIdeas[i].id == favoriteCard && allIdeas[i].star === true) {
             allIdeas[i].updateIdea();
         }
+    }
+    if (event.target.id === 'favoriteicon' && showIdeasBtn.textContent === 'Show Starred Ideas') {
+        renderIdeaCard(allIdeas);
+    } else if (event.target.id === 'favoriteicon' && showIdeasBtn.textContent === 'Show All Ideas') {
+        filterFavorites();
     }
 }
 
@@ -161,7 +161,6 @@ function inputChecker() {
             </article>`
             }
         }
-        // ADDED THIS ELSE IF TO ONLY SHOW STARRED IDEAS WHEN IN STARRED IDEAS VIEW
     } else if (showIdeasBtn.textContent === 'Show All Ideas') {
         for (var i = 0; i < allIdeas.length; i++) {
             if (allIdeas[i].star === true && ((allIdeas[i].title.includes(searchField.value)) || (allIdeas[i].body.includes(searchField.value)))) {
