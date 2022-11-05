@@ -21,9 +21,10 @@ Throughout the project, one of our focuses will be on providing a fluid and resp
     * Atom - atom .
     * VS Code - code .
 
-### Preview of App:
+### Preview of 
+App:
 [//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off.)
-
+<img width="1440" alt="IdeaBox All Ideas" src="https://user-images.githubusercontent.com/110955503/200093831-22da54a7-d2db-41a2-a0b4-a86b61e7e5f3.png">
 
 ### Context:
 [//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
