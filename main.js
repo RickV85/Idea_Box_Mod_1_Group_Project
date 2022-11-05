@@ -47,6 +47,9 @@ function generateIdeaCard() {
     renderIdeaCard(allIdeas);
     clearInputFields();
     }
+    if (showIdeasBtn.textContent === 'Show All Ideas') {
+        showIdeasBtn.textContent = 'Show Starred Ideas'
+}
 }
 
 function clearInputFields() {
