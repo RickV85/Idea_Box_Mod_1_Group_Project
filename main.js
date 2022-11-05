@@ -24,6 +24,13 @@ cardContainer.addEventListener('click', function(event) {
 })
 showIdeasBtn.addEventListener('click', displayStarredIdeas);
 searchField.addEventListener('input', inputChecker);
+// searchField.addEventListener('input', function() {
+//     if (showIdeasBtn.textContent === 'Show Starred Ideas') {
+        
+//     } else if (showIdeasBtn.textContent === 'Show All Ideas') {
+
+//     }
+// });
 window.addEventListener('load', retrieveStorage);
 
 /* ~~~ FUNCTIONS ~~~ */ 
@@ -72,7 +79,7 @@ function renderIdeaCard(card) {
                 <h2 class="idea-title">${card[i].title}</h2>
                 <p class="idea-body">${card[i].body}</p>
             </div>
-         </article>`
+            </article>`
     }
 }
 
@@ -102,9 +109,9 @@ function favoriteIdeaCard(event) {
             allIdeas[i].updateIdea();
         }
     }
-    if (event.target.id === 'favoriteicon' && showIdeasBtn.textContent === 'Show Starred Ideas') {
+    if (showIdeasBtn.textContent === 'Show Starred Ideas') {
         renderIdeaCard(allIdeas);
-    } else if (event.target.id === 'favoriteicon' && showIdeasBtn.textContent === 'Show All Ideas') {
+    } else if (showIdeasBtn.textContent === 'Show All Ideas') {
         filterFavorites();
     }
 }
@@ -133,6 +140,7 @@ function filterFavorites () {
         }
     }
     renderIdeaCard(filterIdeaCards);
+    return filterIdeaCards;
 }
 
 function inputChecker() {
