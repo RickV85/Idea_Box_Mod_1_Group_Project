@@ -2,20 +2,19 @@
 
 var allIdeas = [];
 var currentCard;
-var showIdeasBtn = document.querySelector('.show-ideas-button');
-var userTitle = document.querySelector('#userTitle')
-var userBody = document.querySelector('#userBody')
+var showIdeasBtn = document.querySelector('#showIdeasButton');
+var userTitle = document.querySelector('#userTitle');
+var userBody = document.querySelector('#userBody');
 var saveIdeaBtn = document.querySelector('#saveButton');
-var searchField = document.querySelector('.search-field');
+var searchField = document.querySelector('#searchField');
 var ideaCard = document.querySelector('#ideaCard');
-var cardContainer = document.querySelector('.container-bottom');
 
 /* ~~~ EVENT HANDLERS ~~~ */ 
 
 saveIdeaBtn.addEventListener('click', generateIdeaCard);
 userTitle.addEventListener('input', buttonValidity);
 userBody.addEventListener('input', buttonValidity);
-cardContainer.addEventListener('click', function(event) {
+ideaCard.addEventListener('click', function(event) {
     if (event.target.id === 'deleteicon') {
         deleteIdeaCard(event);
     } else if (event.target.id === 'favoriteicon') {
