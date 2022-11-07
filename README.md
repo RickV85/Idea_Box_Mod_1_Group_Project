@@ -20,7 +20,7 @@ Throughout the project, one of our focuses will be on providing a fluid and resp
     * VS Code - code .
 
 ### `Preview of App:`
-
+<img width="1234" alt="IdeaBox Screenshot" src="https://user-images.githubusercontent.com/110955503/200425480-0572662b-4c19-4911-8459-38e3e239875b.png">
 
 ### `Context:`
 It took our team a few days (~4) to write the code for this project. We just completed our fourth week of Mod 1 at Turing School.
