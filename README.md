@@ -6,7 +6,7 @@ Every developer has more ideas than time. As David Allen likes to say “the hum
 Throughout the project, one of our focuses will be on providing a fluid and responsive client-side interface. To this end, we’ll rely on JavaScript to implement snappy filtering in the browser.
 
 ### `Installation Instructions:`
-1. [Click To Open Repo]([[https://github.com/KarrarQ/idea-Box](https://github.com/RickV85/Idea_Box_Mod_1_Group_Project)])
+1. [Click To Open Repo](https://github.com/RickV85/Idea_Box_Mod_1_Group_Project)
 2. Click the "Fork" button. (This will create a user copy of the repository.)
 3. Open the Terminal application.
 4. In Terminal, use the "cd" command to navigate to where the local repository will live.
